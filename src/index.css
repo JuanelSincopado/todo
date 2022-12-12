@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --primary-color: #ff4742;
+  --border-color: #adacac;
+  --border-radius: 5px;
+  --well: #20ea20;
+  --worn: #d82a2a;
+}
+
+.container {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+.titulo {
+  margin-top: 80px;
+  text-align: center;
+  color: rgb(27, 26, 26);
+  font-size: 40px;
+}
+
+.input {
+  margin-top: 50px;
+  width: 100%;
+  height: 40px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px var(--border-color);
+  padding-left: 10px;
+}
+
+.input > img {
+  width: 20px;
+  color: white;
+}
+
+.input > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.button__add {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.list__title {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.task__card {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task__card > p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.container__card_button {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card__button {
+  width: 25px;
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+  border: none;
+  padding: 5px;
+  border-radius: var(--border-radius);
+}
+
+.card__button > img {
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(263deg)
+    brightness(107%) contrast(101%);
+  width: 50px;
+}
+
+.edit {
+  background-color: var(--well);
+}
+
+.delete {
+  background-color: var(--worn);
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 600px;
+  }
+
+  .button__add:hover {
+    cursor: pointer;
+    background-color: white;
+    color: var(--primary-color);
+    border: solid 1px var(--primary-color);
+  }
+
+  .input > img {
+    width: 30px;
+  }
+
+  .task__card {
+    border: solid 1px var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px 30px;
+  }
+
+  .task__card > p {
+    font-size: 16px;
+  }
+
+  .card__button {
+    width: 30px;
+    cursor: pointer;
+    border: solid 1px transparent;
+  }
+
+  .edit:hover {
+    background-color: white;
+    border-color: var(--well);
+  }
+
+  .edit:hover > img {
+    filter: invert(70%) sepia(61%) saturate(1607%) hue-rotate(66deg)
+      brightness(94%) contrast(110%);
+  }
+
+  .delete:hover {
+    background-color: white;
+    border-color: var(--worn);
+  }
+
+  .delete:hover > img {
+    filter: invert(28%) sepia(47%) saturate(3435%) hue-rotate(344deg)
+      brightness(87%) contrast(94%);
+  }
+}
