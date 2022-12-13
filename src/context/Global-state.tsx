@@ -37,6 +37,8 @@ const GlobalState = ({ children }: Props) => {
     data.push(task);
 
     localStorage.setItem("tasks", JSON.stringify(data));
+
+    setInput("");
   };
 
   return (
