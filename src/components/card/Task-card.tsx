@@ -1,6 +1,14 @@
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "../../context/Global-state";
 import CardButtons from "./Card-buttons";
 
 const TaskCard = () => {
+  const { getData } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getData();
+  });
+
   return (
     <div className="task__list">
       <div className="task__card">
