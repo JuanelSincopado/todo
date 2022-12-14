@@ -8,10 +8,15 @@ interface Props {
 
 const defaultState = {
   data: [] as State["data"],
+  taskToEdit: {} as Task,
   input: "",
+  edit: false,
   getData: () => {},
   setInput: () => {},
   createTask: () => {},
+  getTaskToEdit: () => {},
+  editTask: () => {},
+  cancelEdit: () => {},
   deleteTask: () => {},
 };
 
@@ -19,7 +24,9 @@ export const GlobalContext = createContext<State>(defaultState);
 
 const GlobalState = ({ children }: Props) => {
   const [data, setData] = useState<Task[]>([]);
+  const [taskToEdit, setTaskToEdit] = useState<Task>({} as Task);
   const [input, setInput] = useState("");
+  const [edit, setEdit] = useState(false);
 
   const getData = () => {
     const x = localStorage.getItem("tasks");
@@ -42,6 +49,28 @@ const GlobalState = ({ children }: Props) => {
     setInput("");
   };
 
+  const getTaskToEdit = (id: number) => {
+    let x: Task = data.find((task) => task.id === id)!;
+
+    setTaskToEdit(x);
+
+    setInput(x.text);
+
+    setEdit(true);
+  };
+
+  const editTask = () => {
+    setTaskToEdit({
+      ...taskToEdit,
+      text: input,
+    });
+  };
+
+  const cancelEdit = () => {
+    setInput("");
+    setEdit(false);
+  };
+
   const deleteTask = (id: number) => {
     const x: Task[] = data.filter((element) => element.id !== id);
 
@@ -52,7 +81,19 @@ const GlobalState = ({ children }: Props) => {
 
   return (
     <GlobalContext.Provider
-      value={{ data, input, getData, setInput, createTask, deleteTask }}
+      value={{
+        data,
+        taskToEdit,
+        input,
+        edit,
+        getData,
+        setInput,
+        createTask,
+        getTaskToEdit,
+        editTask,
+        cancelEdit,
+        deleteTask,
+      }}
     >
       {children}
     </GlobalContext.Provider>

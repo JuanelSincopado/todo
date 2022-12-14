@@ -13,6 +13,7 @@
   --border-radius: 5px;
   --well: #20ea20;
   --worn: #d82a2a;
+  --warning: #cee407;
 }
 
 .container {
@@ -28,6 +29,8 @@
   color: rgb(27, 26, 26);
   font-size: 40px;
 }
+
+/********* INPUT ***********/
 
 .input {
   margin-top: 50px;
@@ -46,6 +49,23 @@
   color: white;
 }
 
+.button__cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  border: solid 1px var(--worn);
+  background-color: var(--worn);
+  margin-right: 5px;
+  padding: 3px;
+}
+
+.button__cancel > img {
+  width: 15px;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(263deg)
+    brightness(107%) contrast(101%);
+}
+
 .input > input {
   width: 100%;
   border: none;
@@ -54,6 +74,7 @@
   background-color: transparent;
   font-size: 16px;
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .button__add {
@@ -64,6 +85,8 @@
   color: white;
   border-radius: var(--border-radius);
 }
+
+/********* LIST CARD ***********/
 
 .list__title {
   margin-top: 30px;
@@ -91,6 +114,8 @@
   flex-wrap: wrap;
 }
 
+/********* CARDS ***********/
+
 .card__button {
   width: 25px;
   display: flex;
@@ -108,7 +133,7 @@
 }
 
 .edit {
-  background-color: var(--well);
+  background-color: var(--warning);
 }
 
 .delete {
@@ -143,22 +168,23 @@
 
   .card__button {
     width: 30px;
-    cursor: pointer;
     border: solid 1px transparent;
   }
 
   .edit:hover {
     background-color: white;
-    border-color: var(--well);
+    cursor: pointer;
+    border-color: var(--warning);
   }
 
   .edit:hover > img {
-    filter: invert(70%) sepia(61%) saturate(1607%) hue-rotate(66deg)
-      brightness(94%) contrast(110%);
+    filter: invert(87%) sepia(66%) saturate(3972%) hue-rotate(6deg)
+      brightness(92%) contrast(95%);
   }
 
   .delete:hover {
     background-color: white;
+    cursor: pointer;
     border-color: var(--worn);
   }
 

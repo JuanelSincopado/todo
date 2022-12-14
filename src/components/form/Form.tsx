@@ -4,7 +4,8 @@ import Button from "./Button";
 import Input from "./Input";
 
 const Form = () => {
-  const { input, setInput, createTask } = useContext(GlobalContext);
+  const { input, edit, setInput, createTask, editTask, cancelEdit } =
+    useContext(GlobalContext);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -18,6 +19,11 @@ const Form = () => {
       return;
     }
 
+    if (edit) {
+      editTask();
+      return;
+    }
+
     createTask();
   };
 
@@ -27,9 +33,11 @@ const Form = () => {
         placeholder="Escribe una tarea..."
         value={input}
         onChange={handleOnChange}
+        edit={edit}
+        cancelEdit={cancelEdit}
       />
 
-      <Button />
+      <Button edit={edit} />
     </form>
   );
 };

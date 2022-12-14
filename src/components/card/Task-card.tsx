@@ -8,7 +8,7 @@ interface Props {
 }
 
 const TaskCard = ({ task }: Props) => {
-  const { deleteTask } = useContext(GlobalContext);
+  const { getTaskToEdit, deleteTask } = useContext(GlobalContext);
 
   return (
     <div className="task__card">
@@ -19,7 +19,7 @@ const TaskCard = ({ task }: Props) => {
           id={task.id}
           className="card__button edit"
           src="icon/edit.svg"
-          onClick={() => deleteTask(task.id)}
+          onClick={() => getTaskToEdit(task.id)}
         />
         <CardButtons
           id={task.id}
