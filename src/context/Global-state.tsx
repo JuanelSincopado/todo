@@ -12,6 +12,7 @@ const defaultState = {
   getData: () => {},
   setInput: () => {},
   createTask: () => {},
+  deleteTask: () => {},
 };
 
 export const GlobalContext = createContext<State>(defaultState);
@@ -41,9 +42,17 @@ const GlobalState = ({ children }: Props) => {
     setInput("");
   };
 
+  const deleteTask = (id: number) => {
+    const x: Task[] = data.filter((element) => element.id !== id);
+
+    setData(x);
+
+    localStorage.setItem("tasks", JSON.stringify(data));
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ data, input, getData, setInput, createTask }}
+      value={{ data, input, getData, setInput, createTask, deleteTask }}
     >
       {children}
     </GlobalContext.Provider>
