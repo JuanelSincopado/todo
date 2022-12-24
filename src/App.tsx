@@ -9,7 +9,7 @@ function App() {
 
       <Form />
 
-      <p className="list__title">Lista de tareas</p>
+      <p className="list__title">📃 Lista de tareas 📃</p>
 
       <ListTask />
     </div>

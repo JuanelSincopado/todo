@@ -140,6 +140,16 @@
   background-color: var(--worn);
 }
 
+.empty__list {
+  margin: auto;
+  margin-top: 80px;
+  font-size: 20px;
+  border-bottom: solid 1px var(--border-color);
+  padding: 15px;
+  width: 280px;
+  color: var(--border-color);
+}
+
 @media (min-width: 768px) {
   .container {
     width: 600px;
