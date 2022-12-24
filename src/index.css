@@ -11,9 +11,9 @@
   --primary-color: #ff4742;
   --border-color: #adacac;
   --border-radius: 5px;
-  --well: #20ea20;
-  --worn: #d82a2a;
-  --warning: #cee407;
+  --well: #a8f0c6;
+  --worn: #f7a7a3;
+  --warning: #ffd48a;
 }
 
 .container {
@@ -148,6 +148,39 @@
   padding: 15px;
   width: 280px;
   color: var(--border-color);
+}
+
+.alert__off {
+  display: none;
+  transition: ease 0.2s;
+}
+
+.alert {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  right: 50%;
+  width: 300px;
+  transform: translate(-50%);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 3px 3px 8px 1px var(--border-color);
+  background-color: white;
+  transition: ease 0.2s;
+}
+
+.alert > p {
+  text-align: left;
+}
+
+.alert__success {
+  background-color: var(--well);
+  border-left: 5px solid #5f8a71;
+}
+
+.alert__danger {
+  background-color: var(--worn);
+  border-left: 5px solid #93625f;
 }
 
 @media (min-width: 768px) {

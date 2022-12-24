@@ -12,7 +12,7 @@ const ListTask = () => {
 
   return (
     <div className="task__list">
-      {data.length > 0 ? (
+      {data.length === 0 ? (
         <EmptyListTask />
       ) : (
         data.map((task) => <TaskCard task={task} key={task.id} />)

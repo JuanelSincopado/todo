@@ -1,3 +1,4 @@
+import Alert from "../model/Alert";
 import Task from "../model/Task";
 
 interface State {
@@ -5,6 +6,7 @@ interface State {
   taskToEdit: Task;
   input: string;
   edit: boolean;
+  alert: Alert;
   getData: () => void;
   setInput: (input: string) => void;
   createTask: () => void;
@@ -19,6 +21,7 @@ export const defaultState = {
   taskToEdit: {} as Task,
   input: "",
   edit: false,
+  alert: {} as State["alert"],
   getData: () => {},
   setInput: () => {},
   createTask: () => {},

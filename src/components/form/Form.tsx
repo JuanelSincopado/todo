@@ -13,12 +13,7 @@ const Form = () => {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (input == "") {
-      console.log("Ingrese una tarea");
-      return;
-    }
-
+    
     if (edit) {
       editTask();
       return;
