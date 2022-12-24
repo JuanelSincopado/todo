@@ -68,6 +68,10 @@ const GlobalState = ({ children }: Props) => {
   const cancelEdit = () => {
     setInput("");
     setEdit(false);
+    setTaskToEdit({
+      id: 0,
+      text: "",
+    });
   };
 
   const deleteTask = (id: number) => {
