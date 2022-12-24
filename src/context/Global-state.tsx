@@ -1,24 +1,10 @@
 import { createContext, useState } from "react";
-import State from "./State";
+import State, { defaultState } from "./State";
 import Task from "../model/Task";
 
 interface Props {
   children: React.ReactNode;
 }
-
-const defaultState = {
-  data: [] as State["data"],
-  taskToEdit: {} as Task,
-  input: "",
-  edit: false,
-  getData: () => {},
-  setInput: () => {},
-  createTask: () => {},
-  getTaskToEdit: () => {},
-  editTask: () => {},
-  cancelEdit: () => {},
-  deleteTask: () => {},
-};
 
 export const GlobalContext = createContext<State>(defaultState);
 
@@ -60,10 +46,23 @@ const GlobalState = ({ children }: Props) => {
   };
 
   const editTask = () => {
-    setTaskToEdit({
-      ...taskToEdit,
-      text: input,
+    let objectTaskToEdit: Task = taskToEdit;
+
+    objectTaskToEdit.text = input;
+
+    const newData = data.map((element) => {
+      if (element.id === objectTaskToEdit.id) {
+        return { ...element, text: objectTaskToEdit.text };
+      }
+
+      return element;
     });
+
+    setData(newData);
+
+    localStorage.setItem("tasks", JSON.stringify(data));
+
+    cancelEdit();
   };
 
   const cancelEdit = () => {
